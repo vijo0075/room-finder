@@ -1,25 +1,23 @@
+<!DOCTYPE html>
 <head>
   <title>room-finder</title>
+  <link href="https://daresay-dev.eu-gb.cf.appdomain.cloud/innovativa/A81758FFFE03BC34/2019:12:03%2013:00:00/2019:12:03%2013:55:00/10/139kTnm10ksR">
 </head>
 
 <body>
   <h1>Welcome to Meteor!</h1>
 
-  {{> hello}}
-  {{> info}}
+  {{> roomNumber}}
+  <script src="main.js"></script>
+  {{> emptyOrNot}}
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="roomNumber">
+  <p>Lista med rum som är lediga:</p>
+
 </template>
 
-<template name="info">
-  <h2>Learn Meteor!</h2>
-  <ul>
-    <li><a href="https://www.meteor.com/try" target="_blank">Do the Tutorial</a></li>
-    <li><a href="http://guide.meteor.com" target="_blank">Follow the Guide</a></li>
-    <li><a href="https://docs.meteor.com" target="_blank">Read the Docs</a></li>
-    <li><a href="https://forums.meteor.com" target="_blank">Discussions</a></li>
-  </ul>
+<template name="emptyOrNot">
+  <h2></h2>
+
 </template>

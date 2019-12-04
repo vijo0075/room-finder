@@ -3,20 +3,19 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 import './main.html';
 
-Template.hello.onCreated(function helloOnCreated() {
-  // counter starts at 0
-  this.counter = new ReactiveVar(0);
-});
+Template.roomNumber.onCreated(
+  function helloOnCreated() {
+    var request = new XMLHttpRequest();
 
-Template.hello.helpers({
-  counter() {
-    return Template.instance().counter.get();
-  },
-});
+    request.open('GET', 'https://daresay-dev.eu-gb.cf.appdomain.cloud/innovativa/A81758FFFE03BC34/2019:12:03%2013:00:00/2019:12:03%2013:55:00/10/139kTnm10ksR', true);
 
-Template.hello.events({
-  'click button'(event, instance) {
-    // increment the counter when button is clicked
-    instance.counter.set(instance.counter.get() + 1);
-  },
+    request.onload = function() {
+      var data = JSON.parse(this.response);
+
+      data.forEach(object => {
+        console.log(object.temperature)
+      })
+    }
+
+    request.send();
 });
