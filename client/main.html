@@ -3,7 +3,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script>
     $.getJSON('https://daresay-dev.eu-gb.cf.appdomain.cloud/innovativa/A81758FFFE03BC34/2019:12:04 10:00:00/2019:12:04 13:00:00/10/139kTnm10ksR', function(data) {
-      console.log(data);
+      var sensorData = data;
+      console.log(sensorData);
+      document.getElementById('sensors').innerHTML = sensorData["1"].dd.light;
     });
   </script>
 </head>
@@ -11,8 +13,10 @@
 <body>
   <h1>Welcome to Meteor!</h1>
 {{>innovation}}
+<p id="sensors"></p>
 </body>
 
 <template name="innovation">
   <p>hejsan</p>
+
 </template>
