@@ -2,21 +2,29 @@
   <title>room-finder</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script>
-    $.getJSON('https://daresay-dev.eu-gb.cf.appdomain.cloud/innovativa/A81758FFFE03BC34/2019:12:04 10:00:00/2019:12:04 13:00:00/10/139kTnm10ksR', function(data) {
+    $.getJSON('https://daresay-dev.eu-gb.cf.appdomain.cloud/innovativa/A81758FFFE03BC34/2019:12:04 10:00:00/2019:12:04 13:00:00/1/139kTnm10ksR', function(data) {
       var sensorData = data;
       console.log(sensorData);
-      document.getElementById('sensors').innerHTML = sensorData["1"].dd.light;
+
+      document.getElementById('temperature').innerHTML = "temperature: " + sensorData["0"].dd.light;
+      document.getElementById('light').innerHTML = "light: " + sensorData["0"].dd.light;
+      document.getElementById('humidity').innerHTML = "humidity: " + sensorData["0"].dd.humidity;
+      document.getElementById('time').innerHTML = "time: " + sensorData["0"].time;
     });
   </script>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+  <h1>Sensordata!</h1>
 {{>innovation}}
-<p id="sensors"></p>
 </body>
 
 <template name="innovation">
-  <p>hejsan</p>
+
+
+  <p id="time"> </p>
+  <p id="temperature"> </p>
+  <p id="light"> </p>
+  <p id="humidity"> </p>
 
 </template>
