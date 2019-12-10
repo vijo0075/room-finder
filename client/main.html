@@ -27,19 +27,32 @@
     return i;
     }
 
+    //Current time
     var today = new Date();
     var date = today.getFullYear()+'-'+addZero((today.getMonth()+1))+'-'+addZero(today.getDate());
     var time = addZero(today.getHours()) + ":" + addZero(today.getMinutes()) + ":" + addZero(today.getSeconds());
     var dateTime = date+' '+time;
 
+
+    //Current time - 1 hour
+    var today2 = new Date();
+    var date2 = today2.getFullYear()+'-'+addZero((today2.getMonth()+1))+'-'+addZero(today2.getDate());
+    var time2 = addZero(today2.getHours()-1) + ":" + addZero(today2.getMinutes()) + ":" + addZero(today2.getSeconds());
+    var dateTime2 = date2+' '+time2;
+   console.log(dateTime2);
+
+   //modified url
+   url = new URL('https://daresay-dev.eu-gb.cf.appdomain.cloud/innovativa/A81758FFFE03BC34/'+dateTime2+'/'+dateTime+'/4/139kTnm10ksR');
+   console.log(url);
+
     document.getElementById("demo").innerHTML = "current time = " + dateTime;
 
-
-    $.getJSON('https://daresay-dev.eu-gb.cf.appdomain.cloud/innovativa/A81758FFFE03BC34/2019:12:04 10:00:00/2019:12:04 13:00:00/1/139kTnm10ksR', function(data) {
-
+    //connecting to the API
+    $.getJSON(url, function(data) {
       var sensorData = data;
       console.log(sensorData);
 
+      //Getting the data
       document.getElementById('temperature').innerHTML = "temperature: " + sensorData["0"].dd.light;
       document.getElementById('light').innerHTML = "light: " + sensorData["0"].dd.light;
       document.getElementById('humidity').innerHTML = "humidity: " + sensorData["0"].dd.humidity;
