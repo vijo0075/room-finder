@@ -1,5 +1,6 @@
 <head>
   <title>room-finder</title>
+<<<<<<< HEAD
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script>
     $.getJSON('https://daresay-dev.eu-gb.cf.appdomain.cloud/innovativa/A81758FFFE03BC34/2019:12:04 10:00:00/2019:12:04 13:00:00/10/139kTnm10ksR', function(data) {
@@ -14,7 +15,12 @@
 
     });
   </script>
+=======
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+>>>>>>> 34c35fc8838579af1d8ff771b1553915856fc590
 </head>
+
 
 <body>
   <h1>Welcome to Meteor!</h1>
@@ -22,10 +28,62 @@
 
 </body>
 
+<<<<<<< HEAD
 <template name="innovation">
   <div class="light">
     <p>Light: </p>
     <p id="sensors"></p>
   </div>
+=======
+
+<template name="innovation">
+  <p id="time"> </p>
+  <p id="temperature"> </p>
+  <p id="light"> </p>
+  <p id="humidity"> </p>
+  <p id="demo"> </p>
+
+
+  <script>
+    function addZero(i) {
+      if (i < 10) {
+      i = "0" + i;
+      }
+    return i;
+    }
+
+    //Current time
+    var today = new Date();
+    var date = today.getFullYear()+'-'+addZero((today.getMonth()+1))+'-'+addZero(today.getDate());
+    var time = addZero(today.getHours()) + ":" + addZero(today.getMinutes()) + ":" + addZero(today.getSeconds());
+    var dateTime = date+' '+time;
+
+
+    //Current time - 1 hour
+    var today2 = new Date();
+    var date2 = today2.getFullYear()+'-'+addZero((today2.getMonth()+1))+'-'+addZero(today2.getDate());
+    var time2 = addZero(today2.getHours()-1) + ":" + addZero(today2.getMinutes()) + ":" + addZero(today2.getSeconds());
+    var dateTime2 = date2+' '+time2;
+   console.log(dateTime2);
+
+   //modified url
+   url = new URL('https://daresay-dev.eu-gb.cf.appdomain.cloud/innovativa/A81758FFFE03BC34/'+dateTime2+'/'+dateTime+'/4/139kTnm10ksR');
+   console.log(url);
+
+    document.getElementById("demo").innerHTML = "current time = " + dateTime;
+
+    //connecting to the API
+    $.getJSON(url, function(data) {
+      var sensorData = data;
+      console.log(sensorData);
+
+      //Getting the data
+      document.getElementById('temperature').innerHTML = "temperature: " + sensorData["0"].dd.light;
+      document.getElementById('light').innerHTML = "light: " + sensorData["0"].dd.light;
+      document.getElementById('humidity').innerHTML = "humidity: " + sensorData["0"].dd.humidity;
+      document.getElementById('time').innerHTML = "time: " + sensorData["0"].time;
+    });
+  </script>
+>>>>>>> 34c35fc8838579af1d8ff771b1553915856fc590
 
 </template>
