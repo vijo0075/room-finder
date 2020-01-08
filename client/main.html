@@ -1,22 +1,14 @@
 <head>
   <title>room-finder</title>
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
 </head>
-
 
 <body>
   <header>
       <h1>Lediga Rum</h1>
   </header>
-
 {{>innovation}}
-
 </body>
-
-
-
 
 <template name="innovation">
   <p id="time"> </p>
@@ -25,29 +17,27 @@
   <p id="humidity"> </p>
   <p id="co2"> </p>
   <p id="demo"> </p>
-
   <p id ="free"> </p>
-
   <p id ="Room0"> </p>
   <p id ="Room1"> </p>
   <p id ="Room2"> </p>
-
   <table id ="myTable">
-    <tr><th>Rum</th> <th>Typ av rum</th> <th>Tillgänglighet</th> <th>Bokningar</th> </tr>
+    <tr><th bgcolor= "white">Rum</th> <th bgcolor= "white">Typ av rum</th> <th bgcolor= "white">Tillgänglighet</th> <th bgcolor= "white">Bokningar</th> </tr>
 
     <tr> <td bgcolor="#33C4FF"> <p><a href="https://use.mazemap.com/#v=1&zlevel=3&center=20.306959,63.819469&zoom=18&campuses=umea&campusid=289&sharepoitype=poi&sharepoi=772185">N340</a></p></td> <td>Klassrum</td><td> </td>
     <td><a href="https://cloud.timeedit.net/umu/web/public1/ri.html?h=f&sid=3&p=0.m%2C2.w&objects=13337.4&ox=0&types=0&fe=0&g=t&h2=f&fbclid=IwAR1rhNMD3JHF9hvkljCrjHKURXm-kk6KmCT26Te-6Kzxcf6_WEfFZZxEkBc" style="color:#534F4E">Klicka</a></td></tr>
 
-    <tr> <td bgcolor="#33C4FF"><p><a href="https://use.mazemap.com/#v=1&zlevel=3&center=20.307977,63.819009&zoom=18&campuses=umea&campusid=289&sharepoitype=poi&sharepoi=759903">NC355</a></p></td> <td>Grupprum</td><td> </td>
-    <td> </td></tr>
+    <tr> <td bgcolor="#33C4FF"><p><a href="https://use.mazemap.com/#v=1&zlevel=3&center=20.307977,63.819009&zoom=18&campuses=umea&campusid=289&sharepoitype=poi&sharepoi=759903">NC355</a></p></td> <td bgcolor= "white">Grupprum</td><td bgcolor= "white"> </td>
+    <td bgcolor= "white"> </td></tr>
 
-    <tr> <td bgcolor="#33C4FF"><p><a href="https://cloud.timeedit.net/umu/web/public1/ri.html?h=f&sid=3&p=0.m%2C2.w&objects=13337.4&ox=0&types=0&fe=0&g=t&h2=f&fbclid=IwAR1rhNMD3JHF9hvkljCrjHKURXm-kk6KmCT26Te-6Kzxcf6_WEfFZZxEkBc">NC357</a></p></td> <td>Grupprum</td><td> </td>
+    <tr> <td bgcolor="#33C4FF"><p><a href="https://use.mazemap.com/#v=1&zlevel=3&center=20.308194,63.819008&zoom=18&campuses=umea&campusid=289&sharepoitype=poi&sharepoi=759874">NC357</a></p></td> <td>Grupprum</td><td> </td>
     <td> </td></tr>
-
 
   </table>
-
-
+  <div class="imageDiv">
+    <p> </p>
+    <img src="https://aptum.se/wp-content/uploads/2016/05/umu_logo-200x200.png" alt="umu_logo">
+  </div>
 
   <script>
     var roomArray = ["A81758FFFE03FA66", "A81758FFFE03BD32", "A81758FFFE03BCEF"];
@@ -61,8 +51,6 @@
       }
     return i;
     }
-
-
 
     //Current time
     var today = new Date();
@@ -130,7 +118,6 @@
       var free = collectJson(urlArray[j]);
       //console.log(free);
 
-
       if(free == 1){
         //document.getElementById(room).innerHTML = name + " är ledigt!"
         var x = document.getElementById("myTable").rows[j+1].cells;
@@ -143,7 +130,5 @@
         x[2].style.backgroundColor = '#FFD9D2';
       }
   }
-
-
   </script>
 </template>
