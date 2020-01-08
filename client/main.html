@@ -1,24 +1,7 @@
 <head>
   <title>room-finder</title>
-<<<<<<< HEAD
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script>
-    $.getJSON('https://daresay-dev.eu-gb.cf.appdomain.cloud/innovativa/A81758FFFE03BC34/2019:12:04 10:00:00/2019:12:04 13:00:00/10/139kTnm10ksR', function(data) {
-      var sensorData = data;
-      console.log(sensorData);
-      var counter = 0;
-      while(sensorData) {
-          document.getElementById('sensors').innerHTML = sensorData[counter].dd.light;
-          console.log(counter);
-          counter++;
-      }
-
-    });
-  </script>
-=======
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
->>>>>>> 34c35fc8838579af1d8ff771b1553915856fc590
 </head>
 
 
@@ -28,13 +11,6 @@
 
 </body>
 
-<<<<<<< HEAD
-<template name="innovation">
-  <div class="light">
-    <p>Light: </p>
-    <p id="sensors"></p>
-  </div>
-=======
 
 <template name="innovation">
   <p id="time"> </p>
@@ -84,6 +60,5 @@
       document.getElementById('time').innerHTML = "time: " + sensorData["0"].time;
     });
   </script>
->>>>>>> 34c35fc8838579af1d8ff771b1553915856fc590
 
 </template>
