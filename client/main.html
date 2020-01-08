@@ -2,13 +2,20 @@
   <title>room-finder</title>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 </head>
 
 
 <body>
-  <h1>Sensordata!</h1>
+  <header>
+      <h1>Lediga Rum</h1>
+  </header>
+
 {{>innovation}}
+
 </body>
+
+
 
 
 <template name="innovation">
@@ -16,10 +23,38 @@
   <p id="temperature"> </p>
   <p id="light"> </p>
   <p id="humidity"> </p>
+  <p id="co2"> </p>
   <p id="demo"> </p>
+
+  <p id ="free"> </p>
+
+  <p id ="Room0"> </p>
+  <p id ="Room1"> </p>
+  <p id ="Room2"> </p>
+
+  <table id ="myTable">
+    <tr><th>Rum</th> <th>Typ av rum</th> <th>Tillgänglighet</th> <th>Bokningar</th> </tr>
+
+    <tr> <td bgcolor="#33C4FF"> <p><a href="https://use.mazemap.com/#v=1&zlevel=3&center=20.306959,63.819469&zoom=18&campuses=umea&campusid=289&sharepoitype=poi&sharepoi=772185">N340</a></p></td> <td>Klassrum</td><td> </td>
+    <td><a href="https://cloud.timeedit.net/umu/web/public1/ri.html?h=f&sid=3&p=0.m%2C2.w&objects=13337.4&ox=0&types=0&fe=0&g=t&h2=f&fbclid=IwAR1rhNMD3JHF9hvkljCrjHKURXm-kk6KmCT26Te-6Kzxcf6_WEfFZZxEkBc" style="color:#534F4E">Klicka</a></td></tr>
+
+    <tr> <td bgcolor="#33C4FF"><p><a href="https://use.mazemap.com/#v=1&zlevel=3&center=20.307977,63.819009&zoom=18&campuses=umea&campusid=289&sharepoitype=poi&sharepoi=759903">NC355</a></p></td> <td>Grupprum</td><td> </td>
+    <td> </td></tr>
+
+    <tr> <td bgcolor="#33C4FF"><p><a href="https://cloud.timeedit.net/umu/web/public1/ri.html?h=f&sid=3&p=0.m%2C2.w&objects=13337.4&ox=0&types=0&fe=0&g=t&h2=f&fbclid=IwAR1rhNMD3JHF9hvkljCrjHKURXm-kk6KmCT26Te-6Kzxcf6_WEfFZZxEkBc">NC357</a></p></td> <td>Grupprum</td><td> </td>
+    <td> </td></tr>
+
+
+  </table>
+
 
 
   <script>
+    var roomArray = ["A81758FFFE03FA66", "A81758FFFE03BD32", "A81758FFFE03BCEF"];
+    var nameArray = ["N340", "NC355", "NC357"];
+    var urlArray = [];
+
+    //adds zeroes if time<10
     function addZero(i) {
       if (i < 10) {
       i = "0" + i;
@@ -27,12 +62,13 @@
     return i;
     }
 
+
+
     //Current time
     var today = new Date();
     var date = today.getFullYear()+'-'+addZero((today.getMonth()+1))+'-'+addZero(today.getDate());
     var time = addZero(today.getHours()) + ":" + addZero(today.getMinutes()) + ":" + addZero(today.getSeconds());
     var dateTime = date+' '+time;
-
 
     //Current time - 1 hour
     var today2 = new Date();
@@ -41,11 +77,11 @@
     var dateTime2 = date2+' '+time2;
    console.log(dateTime2);
 
+/*
    //modified url
-   url = new URL('https://daresay-dev.eu-gb.cf.appdomain.cloud/innovativa/A81758FFFE03BC34/'+dateTime2+'/'+dateTime+'/4/139kTnm10ksR');
-   console.log(url);
+   url = new URL('https://daresay-dev.eu-gb.cf.appdomain.cloud/innovativa/A81758FFFEBCFO/'+dateTime2+'/'+dateTime+'/10/139kTnm10ksR');
 
-    document.getElementById("demo").innerHTML = "current time = " + dateTime;
+   document.getElementById("demo").innerHTML = "current time = " + dateTime;
 
     //connecting to the API
     $.getJSON(url, function(data) {
@@ -53,11 +89,61 @@
       console.log(sensorData);
 
       //Getting the data
-      document.getElementById('temperature').innerHTML = "temperature: " + sensorData["0"].dd.light;
+      document.getElementById('temperature').innerHTML = "temperature: " + sensorData["0"].dd.temperature;
       document.getElementById('light').innerHTML = "light: " + sensorData["0"].dd.light;
       document.getElementById('humidity').innerHTML = "humidity: " + sensorData["0"].dd.humidity;
       document.getElementById('time').innerHTML = "time: " + sensorData["0"].time;
-    });
-  </script>
+      document.getElementById('co2').innerHTML = "co2: " + sensorData["0"].dd.co2;
 
+    });
+    */
+
+
+    for(i=0; i< roomArray.length; i++){
+      urlArray[i] = new URL('https://daresay-dev.eu-gb.cf.appdomain.cloud/innovativa/'+roomArray[i]+'/'+dateTime2+'/'+dateTime+'/10/139kTnm10ksR');
+    }
+
+    //console.log(urlArray);
+    function collectJson(url){
+    var light = 0;
+
+      $.getJSON(url, function(data) {
+        //console.log(url);
+        var sensorData = data;
+        console.log(sensorData);
+        light = sensorData["0"].dd.light;
+        if(light == undefined){
+          light = sensorData["1"].dd.light;
+        }
+        });
+        if(light < 22){
+          return 1;
+        }else {
+          return 0;
+        }
+      }
+
+    for(j=0; j<urlArray.length; j++){
+      var room = "Room"+j;
+      var room = room.toString();
+      name = nameArray[j];
+      var free = collectJson(urlArray[j]);
+      //console.log(free);
+
+
+      if(free == 1){
+        //document.getElementById(room).innerHTML = name + " är ledigt!"
+        var x = document.getElementById("myTable").rows[j+1].cells;
+        x[2].innerHTML = "Ledigt";
+        x[2].style.backgroundColor = '#E3FFD2';
+      }else {
+        //document.getElementById(room).innerHTML = name + " är upptaget!"
+        var x = document.getElementById("myTable").rows[j+1].cells;
+        x[2].innerHTML = "Upptaget";
+        x[2].style.backgroundColor = '#FFD9D2';
+      }
+  }
+
+
+  </script>
 </template>
