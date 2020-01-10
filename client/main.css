@@ -19,7 +19,7 @@ body {
 }
 header {
     margin: 0;
-    background: #33C4FF;
+    background: #019FE6;
     height: 65px;
     padding: 1px;
 }
@@ -56,12 +56,10 @@ table {
 td, th {
   border: 1px solid #dddddd;
   text-align: left;
-  padding: 8px;
+  padding: 1px;
 }
 
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
+
 
 
 td a {

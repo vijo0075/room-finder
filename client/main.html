@@ -24,18 +24,28 @@
   <p id ="Room0"> </p>
   <p id ="Room1"> </p>
   <p id ="Room2"> </p>
-  <div style="max-width: 1200px; margin-left: auto; margin-right: auto; display: block;">
+  <div style="max-width: 1100px; margin-left: auto; margin-right: auto; display: block;">
 
   <table id ="myTable">
     <tr><th bgcolor= "white">Rum</th> <th bgcolor= "white">Typ av rum</th> <th bgcolor= "white">Tillgänglighet</th> <th bgcolor= "white">Bokningar</th> </tr>
 
-    <tr> <td bgcolor="#33C4FF"> <p><a href="https://use.mazemap.com/#v=1&zlevel=3&center=20.306959,63.819469&zoom=18&campuses=umea&campusid=289&sharepoitype=poi&sharepoi=772185">N340</a></p></td> <td>Klassrum</td><td> </td>
+    <tr> <td bgcolor="#019FE6"> <p><a href="https://use.mazemap.com/#v=1&zlevel=3&center=20.306963,63.819574&zoom=18&sharepoitype=poi&sharepoi=760135&campuses=umea&campusid=289">N330</a></p></td> <td>Klassrum</td><td> </td>
+    <td><a href="https://cloud.timeedit.net/umu/web/public1/ri1frX8k5QZZYuQvpQ0ZqoA6yIYZ75lcm7qQc77QQY7Zf7Q95RN6asoeWiHtC7vlMqvnFK1KotJZZZX641KagW1UgsT1RHCuD6Et_ZZZX3ZZZX2FETZZZX2tBl.html" style="color:#534F4E">Klicka</a></td></tr>
+
+    <tr> <td bgcolor="#019FE6"> <p><a href="https://use.mazemap.com/#v=1&zlevel=3&center=20.306959,63.819469&zoom=18&campuses=umea&campusid=289&sharepoitype=poi&sharepoi=772185">N340</a></p></td> <td>Klassrum</td><td> </td>
     <td><a href="https://cloud.timeedit.net/umu/web/public1/ri.html?h=f&sid=3&p=0.m%2C2.w&objects=13337.4&ox=0&types=0&fe=0&g=t&h2=f&fbclid=IwAR1rhNMD3JHF9hvkljCrjHKURXm-kk6KmCT26Te-6Kzxcf6_WEfFZZxEkBc" style="color:#534F4E">Klicka</a></td></tr>
 
-    <tr> <td bgcolor="#33C4FF"><p><a href="https://use.mazemap.com/#v=1&zlevel=3&center=20.307977,63.819009&zoom=18&campuses=umea&campusid=289&sharepoitype=poi&sharepoi=759903">NC355</a></p></td> <td bgcolor= "white">Grupprum</td><td bgcolor= "white"> </td>
+    <tr> <td bgcolor="#019FE6"> <p><a href="https://use.mazemap.com/#v=1&zlevel=3&center=20.306956,63.819404&zoom=18&campuses=umea&campusid=289&sharepoitype=poi&sharepoi=760147">N350</a></p></td> <td>Klassrum</td><td> </td>
+    <td><a href="https://cloud.timeedit.net/umu/web/public1/ri1frX8k5QZZYuQvpQ0ZqoA6yIYZ75lcm7qQc77QQY7Zf7Q35RN6asoeWiHtC7vlMqvnFK1KotJZZZX641KagW1UgsT1RHCuD6Et_ZZZX3ZZZX2FETZZZX2tBl.html" style="color:#534F4E">Klicka</a></td></tr>
+
+    <tr> <td bgcolor="#019FE6"> <p><a href="https://use.mazemap.com/#v=1&zlevel=3&center=20.306945,63.819148&zoom=18&campuses=umea&campusid=289&sharepoitype=poi&sharepoi=760143">N370</a></p></td> <td>Klassrum</td><td> </td>
+    <td><a href="https://cloud.timeedit.net/umu/web/public1/ri1frX8k5QZZYuQvpQ0ZqoA6yIYZ75lcm7qQc75QQY7Zf7Q65RN6asoeWiHtC7vlMqvnFK1KotJZZZX641KagW1UgsT1RHCuD6Et_ZZZX3ZZZX2FETZZZX2tBl.html" style="color:#534F4E">Klicka</a></td></tr>
+
+
+    <tr> <td bgcolor="#019FE6"><p><a href="https://use.mazemap.com/#v=1&zlevel=3&center=20.307977,63.819009&zoom=18&campuses=umea&campusid=289&sharepoitype=poi&sharepoi=759903">NC355</a></p></td> <td bgcolor= "white">Grupprum</td><td bgcolor= "white"> </td>
     <td bgcolor= "white"> </td></tr>
 
-    <tr> <td bgcolor="#33C4FF"><p><a href="https://use.mazemap.com/#v=1&zlevel=3&center=20.308194,63.819008&zoom=18&campuses=umea&campusid=289&sharepoitype=poi&sharepoi=759874">NC357</a></p></td> <td>Grupprum</td><td> </td>
+    <tr> <td bgcolor="#019FE6"><p><a href="https://use.mazemap.com/#v=1&zlevel=3&center=20.308194,63.819008&zoom=18&campuses=umea&campusid=289&sharepoitype=poi&sharepoi=759874">NC357</a></p></td> <td>Grupprum</td><td> </td>
     <td> </td></tr>
 
   </table>
@@ -46,8 +56,10 @@
   </div>
 
   <script>
-    var roomArray = ["A81758FFFE03FA66", "A81758FFFE03BD32", "A81758FFFE03BCEF"];
-    var nameArray = ["N340", "NC355", "NC357"];
+    var elsysArray = ["A81758FFFE03FA3E", "A81758FFFE03FA66", "A81758FFFE03BD47", "A81758FFFE03FA45"];
+    var roomArray = ["A81758FFFE03BD32", "A81758FFFE03BCEF"];
+    var nameArray = ["NC355", "NC357"];
+    var elsysUrlArray = [];
     var urlArray = [];
 
     //adds zeroes if time<10
@@ -71,10 +83,10 @@
     var dateTime2 = date2+' '+time2;
    console.log(dateTime2);
 
-/*
-   //modified url
-   url = new URL('https://daresay-dev.eu-gb.cf.appdomain.cloud/innovativa/A81758FFFEBCFO/'+dateTime2+'/'+dateTime+'/10/139kTnm10ksR');
 
+   //modified url
+   //url = new URL('https://daresay-dev.eu-gb.cf.appdomain.cloud/innovativa/A81758FFFEBCFO/'+dateTime2+'/'+dateTime+'/10/139kTnm10ksR');
+   /*url = new URL('https://lora.elsys.se/manage/api_v2.php/sensor/A81758FFFE03FA45/all?key=vQSNbCGHrhTrgp1UWbrtijgANqt8y6WxhkJXH_5lCo0-&From=2018%E2%80%9010%E2%80%9031%2000:00:00&no=6');
    document.getElementById("demo").innerHTML = "current time = " + dateTime;
 
     //connecting to the API
@@ -90,7 +102,37 @@
       document.getElementById('co2').innerHTML = "co2: " + sensorData["0"].dd.co2;
 
     });
-    */
+
+
+*/
+
+for(i=0; i< elsysArray.length; i++){
+  elsysUrlArray[i] = new URL('https://lora.elsys.se/manage/api_v2.php/sensor/'+elsysArray[i]+'/all?key=vQSNbCGHrhTrgp1UWbrtijgANqt8y6WxhkJXH_5lCo0-&From=2018‐10‐31%2000:00:00&no=6');
+}
+
+//console.log(elsysUrlArray);
+
+for(j=0; j<elsysUrlArray.length; j++){
+  //var room = "Room"+j;
+  //var room = room.toString();
+  //name = nameArray[j];
+  var free = collectJson(elsysUrlArray[j]);
+  //console.log(free);
+
+  if(free == 1){
+    //document.getElementById(room).innerHTML = name + " är ledigt!"
+    var x = document.getElementById("myTable").rows[j+1].cells;
+    x[2].innerHTML = "Ledigt";
+    x[2].style.backgroundColor = '#E3FFD2';
+  }else {
+    //document.getElementById(room).innerHTML = name + " är upptaget!"
+    var x = document.getElementById("myTable").rows[j+1].cells;
+    x[2].innerHTML = "Upptaget";
+    x[2].style.backgroundColor = '#FFD9D2';
+  }
+}
+
+
 
 
     for(i=0; i< roomArray.length; i++){
@@ -102,7 +144,7 @@
     var light = 0;
 
       $.getJSON(url, function(data) {
-        //console.log(url);
+        console.log(url);
         var sensorData = data;
         console.log(sensorData);
         light = sensorData["0"].dd.light;
@@ -118,20 +160,20 @@
       }
 
     for(j=0; j<urlArray.length; j++){
-      var room = "Room"+j;
-      var room = room.toString();
+      //var room = "Room"+j;
+      //var room = room.toString();
       name = nameArray[j];
       var free = collectJson(urlArray[j]);
       //console.log(free);
 
       if(free == 1){
         //document.getElementById(room).innerHTML = name + " är ledigt!"
-        var x = document.getElementById("myTable").rows[j+1].cells;
+        var x = document.getElementById("myTable").rows[j+5].cells;
         x[2].innerHTML = "Ledigt";
         x[2].style.backgroundColor = '#E3FFD2';
       }else {
         //document.getElementById(room).innerHTML = name + " är upptaget!"
-        var x = document.getElementById("myTable").rows[j+1].cells;
+        var x = document.getElementById("myTable").rows[j+5].cells;
         x[2].innerHTML = "Upptaget";
         x[2].style.backgroundColor = '#FFD9D2';
       }
